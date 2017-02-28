@@ -22,13 +22,12 @@ dependencies {
 ###1.创建UniversalAdapter
 ```
   mUniversalAdapter = new UniversalAdapter();
-  
 ```
 ###2.继承UniversalViewHolder类
 ```
 public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 
-    public FristNormalViewHolder(View v) {
+    public DemoViewHolder(View v) {
         super(v);
     }
 
@@ -58,5 +57,14 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
          return new DemoViewHolder(v);
     }
 }
-    
+```
+###4.将UniversalProvider注册到UniversalAdapter中
+####一种类型Item的使用
+```
+   mUniversalAdapter.registerHolder(key,数据集合,new FristProvider(context,布局资源id));
+   mRecyclerView.setAdapter(mUniversalAdapter);
+```
+####多种类型Item的使用
+```
+     
 ```
