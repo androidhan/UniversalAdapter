@@ -18,3 +18,9 @@ dependencies {
     compile 'com.hanshao:universallibrary:1.0.0'
 }
 ```
+##使用
+###创建UniversalAdapter
+```
+  mUniversalAdapter = new UniversalAdapter();
+  
+```
