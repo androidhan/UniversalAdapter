@@ -24,3 +24,23 @@ dependencies {
   mUniversalAdapter = new UniversalAdapter();
   
 ```
+###创建UniversalViewHolder
+
+```
+public class DemoViewHolder extends UniversalViewHolder<数据类型> {
+
+    public FristNormalViewHolder(View v) {
+        super(v);
+    }
+
+    @Override
+    protected void initView(View view) {
+        //对绑定的view进行初始化操作
+    }
+
+    @Override
+    public void refreshUi(ItemInfo data) {
+        //item显示时绑定的数据,进行刷新Item的UI
+    }
+}
+```
