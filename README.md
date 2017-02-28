@@ -19,13 +19,12 @@ dependencies {
 }
 ```
 ##使用
-###创建UniversalAdapter
+###1.创建UniversalAdapter
 ```
   mUniversalAdapter = new UniversalAdapter();
   
 ```
-###创建UniversalViewHolder
-
+###2.继承UniversalViewHolder类
 ```
 public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 
@@ -43,4 +42,21 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
         //item显示时绑定的数据,进行刷新Item的UI
     }
 }
+```
+###3.继承UniversalProvider类
+```
+  //ViewHolder提供者 数据类型与提供的ViewHolder一致
+  public class DemoProvider extends UniversalProvider<数据类型> {
+
+    public DemoProvider(Context context, int resId) {
+        super(context, resId);
+    }
+
+    @Override
+    public UniversalViewHolder<数据类型> realNewInstance(View v) {
+         //提供ViewHolder
+         return new DemoViewHolder(v);
+    }
+}
+    
 ```
