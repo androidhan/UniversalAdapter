@@ -8,9 +8,7 @@
 - 支持加载状态的失败时,可重新触发加载更多
 
 ##效果
-```
-   https://github.com/androidhan/UniversalAdapter/blob/master/images/b.gif
-```
+[img]
 
 ##Download
 使用Gradle:
@@ -123,3 +121,6 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 ####有BUG或者有其他意见改进的地方以及可以考虑增加某些功能支持可以联系我
 ####联系方式QQ:1844225993  
 ####邮箱:1844225993@qq.com
+
+--------------
+[img]: https://github.com/androidhan/UniversalAdapter/blob/master/images/b.gif
