@@ -123,4 +123,4 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 ####邮箱:1844225993@qq.com
 
 --------------
-[img]: https://github.com/androidhan/UniversalAdapter/blob/master/images/b.gif
+[img]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/b.gif
