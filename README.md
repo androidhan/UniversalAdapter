@@ -69,10 +69,11 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
      mUniversalAdapter.registerHolder(key,数据集合,new DemoProvider(context,布局资源id));
      mUniversalAdapter.registerHolder(key,数据集合,new SecondProvider(context,布局资源id));
 ```
+#####注意事项:多类型Item的使用时,不同Item注册Holder需要的参数key一定要不相同
 ####一种类型Item的线性与瀑布流切换
  ```
      mUniversalAdapter.switchMode(true);
-     mUniversalAdapter.registerHolder("1",infos,new LineProvider(context,线性资源id),new WaterfalProvider(context,瀑布流资源Id));
+     mUniversalAdapter.registerHolder(key,infos,new LineProvider(context,线性资源id),new WaterfalProvider(context,瀑布流资源Id));
  ```
 #####线性与瀑布流的切换
 
@@ -89,10 +90,20 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 ```
     mUniversalAdapter.setOnLoadMoreListener(监听器);
 ```
-###6.加载更多失败控制
+###6.加载更多时对RecyclerView刷新UI
+####完成加载更多,并获取了新的数据
+```
+   //注册Item时所对应的key  
+   mUniversalAdapter.addDatas(key,数据集合);
+   //进行刷新
+   mUniversalAdapter.notifyMoreFinish(true);
+```
+####完成加载更多,没有新的数据
+```
+   mUniversalAdapter.notifyMoreFinish(false);
+```
+####加载更多失败
 ```
     mUniversalAdapter.setLoadMoreFailed();
 ```
 ####注意:调用此方法,RecyclerView底部会显示"重新加载更多"的UI,当点击"重新加载更多"的时候会调用加载更多的监听器的方法
-```
-```
