@@ -2,10 +2,10 @@
 
 ##功能
 - 支持加载更多
-- 支持不同item的添加
-- 支持添加头部
+- 支持多种item的添加
+- 支持添加头部及给予数据动态刷新头部UI
 - 支持线性与瀑布流显示的切换
-
+- 支持加载状态的失败时,可重新触发加载更多
 ##Download
 使用Gradle:
 
@@ -15,7 +15,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.hanshao:universallibrary:1.0.0'
+    compile 'com.hanshao:universallibrary:1.0.1'
 }
 ```
 ##使用
@@ -107,3 +107,13 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
     mUniversalAdapter.setLoadMoreFailed();
 ```
 ####注意:调用此方法,RecyclerView底部会显示"重新加载更多"的UI,当点击"重新加载更多"的时候会调用加载更多的监听器的方法
+
+###其他
+####暂不支持多类型Item的线性与瀑布流的切换
+
+####后续版本
+#####支持多类型Item的线性与瀑布流的切换
+#####继续改造UniversalAdapter让其使用更方便
+####有BUG或者有其他意见改进的地方以及可以考虑增加某些功能支持可以联系我
+####联系方式QQ:1844225993  
+####邮箱:1844225993@qq.com
