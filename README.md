@@ -66,14 +66,14 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 ```
 ####多种类型Item的使用
 ```
-     mUniversalAdapter.registerHolder(key,数据集合,new DemoProvider(context,布局资源id));
-     mUniversalAdapter.registerHolder(key,数据集合,new SecondProvider(context,布局资源id));
+    mUniversalAdapter.registerHolder(key,数据集合,new DemoProvider(context,布局资源id));
+    mUniversalAdapter.registerHolder(key,数据集合,new SecondProvider(context,布局资源id));
 ```
 #####注意事项:多类型Item的使用时,不同Item注册Holder需要的参数key一定要不相同
 ####一种类型Item的线性与瀑布流切换
  ```
-     mUniversalAdapter.switchMode(true);
-     mUniversalAdapter.registerHolder(key,infos,new LineProvider(context,线性资源id),new WaterfalProvider(context,瀑布流资源Id));
+    mUniversalAdapter.switchMode(true);
+    mUniversalAdapter.registerHolder(key,infos,new LineProvider(context,线性资源id),new WaterfalProvider(context,瀑布流资源Id));
  ```
 #####线性与瀑布流的切换
 
