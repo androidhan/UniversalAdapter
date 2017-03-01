@@ -14,10 +14,6 @@
 使用Gradle:
 
 ```gradle
-repositories {
-  maven{ url : "https://dl.bintray.com/hanshaofengs/maven" }
-}
-
 dependencies {
     compile 'com.hanshao:universallibrary:1.0.1'
 }
@@ -25,7 +21,7 @@ dependencies {
 ##使用
 ###1.创建UniversalAdapter
 ```
-  mUniversalAdapter = new UniversalAdapter();
+    mUniversalAdapter = new UniversalAdapter();
 ```
 ###2.继承UniversalViewHolder类
 ```
@@ -65,8 +61,8 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 ###4.将UniversalProvider注册到UniversalAdapter中
 ####一种类型Item的使用
 ```
-   mUniversalAdapter.registerHolder(key,数据集合,new DemoProvider(context,布局资源id));
-   mRecyclerView.setAdapter(mUniversalAdapter);
+    mUniversalAdapter.registerHolder(key,数据集合,new DemoProvider(context,布局资源id));
+    mRecyclerView.setAdapter(mUniversalAdapter);
 ```
 ####多种类型Item的使用
 ```
@@ -92,19 +88,19 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 ###5.监听机制
 ####加载更多的监听
 ```
-    mUniversalAdapter.setOnLoadMoreListener(监听器);
+    mUniversalAdapter.setOnLoadMoreListener(监听器);
 ```
 ###6.加载更多时对RecyclerView刷新UI
 ####完成加载更多,并获取了新的数据
 ```
-   //注册Item时所对应的key  
-   mUniversalAdapter.addDatas(key,数据集合);
-   //进行刷新
-   mUniversalAdapter.notifyMoreFinish(true);
+     //注册Item时所对应的key  
+    mUniversalAdapter.addDatas(key,数据集合);
+    //进行刷新
+    mUniversalAdapter.notifyMoreFinish(true);
 ```
 ####完成加载更多,没有新的数据
 ```
-   mUniversalAdapter.notifyMoreFinish(false);
+    mUniversalAdapter.notifyMoreFinish(false);
 ```
 ####加载更多失败
 ```
