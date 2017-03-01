@@ -7,6 +7,11 @@
 - 支持线性与瀑布流显示的切换
 - 支持加载状态的失败时,可重新触发加载更多
 
+##效果
+```
+   https://github.com/androidhan/UniversalAdapter/blob/master/images/b.gif
+```
+
 ##Download
 使用Gradle:
 
