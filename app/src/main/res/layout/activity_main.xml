@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:clipToPadding="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+    tools:context="com.hanshao.demo.sample.MainActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:layout_height="40dp"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:text="一种Item加载更多"
+        android:id="@+id/button_one"
+        />
+
+
+    <Button
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:layout_height="40dp"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:text="一种Item的切换显示模式"
+        android:id="@+id/button_tow"
+        />
+
+
+
+    <Button
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:layout_height="40dp"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:text="多种类型的Item显示"
+        android:id="@+id/button_three"
+        />
+
+
+    <Button
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:layout_height="40dp"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:text="添加头部并支持多种类型的Item显示"
+        android:id="@+id/button_four"
+        />
+
+
+    <Button
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:layout_height="40dp"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:text="多种类型的Item切换显示"
+        android:id="@+id/button_five"
+        />
+
+
+</LinearLayout>
