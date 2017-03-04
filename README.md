@@ -109,6 +109,7 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 ####注意:调用此方法,RecyclerView底部会显示"重新加载更多"的UI,当点击"重新加载更多"的时候会调用加载更多的监听器的方法
 
 ###其他
+####具体的核心实现参考博客链接:<http://www.xiaohanshao.cn/2017/03/04/recyclerview%E4%B8%87%E8%83%BD%E9%80%82%E9%85%8D%E5%99%A8/>
 ####后续版本
 #####继续改造UniversalAdapter让其使用更方便
 ####有BUG或者有其他意见改进的地方以及可以考虑增加某些功能支持可以联系我
