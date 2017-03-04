@@ -30,6 +30,12 @@
                   android:screenOrientation="nosensor"
                   android:launchMode="singleTop"
             />
+        <activity android:name=".MutipleSwitchItemActivity"
+                  android:screenOrientation="nosensor"
+                  android:launchMode="singleTop"
+            />
+
+
 
     </application>
 

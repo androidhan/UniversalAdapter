@@ -1,5 +1,6 @@
 package com.hanshao.demo.sample;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -40,7 +41,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mButtonThree.setOnClickListener(this);
         mButtonFour.setOnClickListener(this);
         mButtonFive.setOnClickListener(this);
+
+
+
     }
+
+    private Handler mHandler = new Handler();
 
     @Override
     public void onClick(View v) {
@@ -54,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else if(v.getId() == R.id.button_four){
             MultipleActivity.startActivity(this,1);
         }else if(v.getId() == R.id.button_five){
-            Toast.makeText(this,"暂时不支持,后续版本进行实现该功能",Toast.LENGTH_LONG).show();
+            MutipleSwitchItemActivity.startActivity(this);
         }
     }
 }

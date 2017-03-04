@@ -14,6 +14,7 @@ import android.widget.Button;
 
 import com.hanshao.demo.sample.bean.ItemInfo;
 import com.hanshao.demo.sample.provider.FristNormalProvider;
+import com.hanshao.demo.sample.provider.TextProvider;
 import com.hanshao.demo.sample.provider.FristWaterfalProvider;
 import com.hanshao.universal.OnLoadMoreListener;
 import com.hanshao.universal.UniversalAdapter;
@@ -53,16 +54,15 @@ public class SwitchItemActivity extends AppCompatActivity implements OnLoadMoreL
     }
 
     private void initData() {
-
         infos = new ArrayList<>();
         for (int i = 0; i <10 ; i++) {
             ItemInfo itemInfo =  new ItemInfo();
             itemInfo.content= "单种类型的切换显示,当前位置:"+i;
             itemInfo.imageId = ids[new Random().nextInt(2)];
             infos.add(itemInfo);
+
         }
         mUniversalAdapter = new UniversalAdapter();
-        mUniversalAdapter.switchMode(true);
         mUniversalAdapter.registerHolder("1",infos,new FristNormalProvider(this,R.layout.holder_normal_one),new FristWaterfalProvider(this,R.layout.holder_waterfal_one));
         mUniversalAdapter.setOnLoadMoreListener(this);
         mRecyclerView.setAdapter(mUniversalAdapter);

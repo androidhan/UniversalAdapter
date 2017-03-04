@@ -5,6 +5,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -42,7 +43,6 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private List<Integer>  mTypes ;
     private Map<String,UniversalProvider> mHolderMaps;
 
-    private boolean mIsWaterfall;
     private boolean mIsHeaderEnable= false ;
     private boolean mIsFooterEnable = true ;
     private boolean mIsLoadingMore = false ;
@@ -101,9 +101,6 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
 
-    public void switchMode(@NonNull boolean mIsWaterfall) {
-        this.mIsWaterfall = mIsWaterfall;
-    }
 
     public void setData(@NonNull String key, @NonNull List<?> datas){
         int index = mKeys.indexOf(key);
@@ -116,7 +113,7 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public void onAttachedToRecyclerView(RecyclerView recyclerView) {
-        super.onAttachedToRecyclerView(recyclerView);
+             super.onAttachedToRecyclerView(recyclerView);
 
         mRecyclerView = recyclerView;
         mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
@@ -197,7 +194,7 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             }
             if (index != -1) {
 
-                if(mIsWaterfall){
+                if(mKeys.size() *2 == mTypes.size()){
                     index /= 2;
                 }
                 int count = mOtherItem;
@@ -211,6 +208,7 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
 
     }
+
 
 
     public void switchLayoutManager(RecyclerView.LayoutManager layoutManager) {
@@ -287,21 +285,24 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     break;
                 }
             }
-
             if(index != -1){
                 String key ;
-                if(mIsWaterfall){
+                if(mKeys.size()*2 == mTypes.size()){
+
                     key = mKeys.get(index/2);
-                    return mHolderMaps.get(key+WATERFAL).newInstance();
+                    if (mRecyclerView.getLayoutManager() instanceof LinearLayoutManager) {
+                        return mHolderMaps.get(key).newInstance();
+                    }
+                    else if (mRecyclerView.getLayoutManager() instanceof StaggeredGridLayoutManager) {
+                        return mHolderMaps.get(key+WATERFAL).newInstance();
+                    }
                 }
                 else{
                     key = mKeys.get(index);
                     return mHolderMaps.get(key).newInstance();
                 }
-
             }
             throw new RuntimeException();
-
         }
     }
 
@@ -323,12 +324,17 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         int size =mKeys.size();
         int tempCount= 0;
-        for (int i = 0; i <size ; i++) {
+        for (int i = 0; i < size ; i++) {
 
             tempCount += mTypeValues.get(i).size();
             if(position >= mOtherItem && position < tempCount+mOtherItem){
-                if(mIsWaterfall){
-                    return mTypes.get(i*2+1);
+
+                if(mKeys.size()*2 == mTypes.size()){
+                    if(mRecyclerView.getLayoutManager() instanceof  LinearLayoutManager ){
+                        return mTypes.get(i*2+1);
+                    }else if(mRecyclerView.getLayoutManager() instanceof StaggeredGridLayoutManager){
+                        return mTypes.get(i*2);
+                    }
                 }else{
                     return mTypes.get(i);
                 }
@@ -336,19 +342,19 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             else{
                 continue;
             }
-
         }
-
-
-
-
         throw new RuntimeException();
-
     }
 
 
     @Override
     public int getItemCount() {
+
+        if(mKeys.size() *2 != mTypes.size() && mKeys.size() !=  mTypes.size() ){
+            //异常抛出
+            throw new RuntimeException("mKeys.size()* 2 not equal +mTypes.size()  or" +" mKeys.size() not equals mTypes.size()");
+        }
+
         int size = mTypeValues.size();
         int count= 0;
         for (int i = 0; i <size ; i++) {
@@ -409,8 +415,6 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public void onTry() {
-
-
         mFooterViewHolder.setCurrentStatus(LOADING);
         if(mOnLoadMoreListener!=null){
             mOnLoadMoreListener.onLoadMore();

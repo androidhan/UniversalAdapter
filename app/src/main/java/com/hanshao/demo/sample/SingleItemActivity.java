@@ -9,8 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.hanshao.demo.sample.holder.FristViewHolder;
-import com.hanshao.demo.sample.provider.FristProvider;
+import com.hanshao.demo.sample.provider.TextProvider;
 import com.hanshao.universal.OnLoadMoreListener;
 import com.hanshao.universal.UniversalAdapter;
 
@@ -51,7 +50,7 @@ public class SingleItemActivity extends AppCompatActivity implements OnLoadMoreL
         for (int i = 0; i < 10 ; i++) {
             infos.add("单一的item类型,当前位置:"+i);
         }
-        mUniversalAdapter.registerHolder("1",infos,new FristProvider(this,R.layout.holder_one));
+        mUniversalAdapter.registerHolder("1",infos,new TextProvider(this,R.layout.holder_text));
         mUniversalAdapter.setOnLoadMoreListener(this);
         mRecyclerView.setAdapter(mUniversalAdapter);
     }

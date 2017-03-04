@@ -3,15 +3,6 @@
 
     <item
         is-multidex="false"
-        jar="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
-        <dex dex="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.1.1_8a8cb348ad80ab4a14fa9092c62503127e63a284.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -39,21 +30,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/exploded-aar/com.hanshao/universallibrary/1.0.1/jars/classes.jar"
+        jar="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/exploded-aar/com.hanshao/universallibrary/1.1.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="c82c1969a8a1938e046dbc19e01e023c45747d9f">
-        <dex dex="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/pre-dexed/debug/com.hanshao-universallibrary-1.0.1_4fe4bb3b25f24111ebff16ce9c027abd8ef20aa1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
-        <dex dex="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.1.1_fa29b189cf785ad38c374a6673079e8448f19b31.jar" />
+        sha1="7b4194d57211d545cfd533175bb478e594b4cfc7">
+        <dex dex="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/pre-dexed/debug/com.hanshao-universallibrary-1.1.0_2cda09ae05eb834f109c60e7c0550c6b139970dd.jar" />
     </item>
     <item
         is-multidex="false"
@@ -66,21 +48,48 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
-        <dex dex="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-25.1.1_69cb7d50df67dce9ab0a6fc265f1555f7a3bde95.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
         <dex dex="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.1_792292de15b468cb635edcb5fdfe8390cce17b1e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
+        <dex dex="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.1_f07ccd603b84513e261599d136e5b22ffd15ebde.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.1.1_8a8cb348ad80ab4a14fa9092c62503127e63a284.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.1.1_fa29b189cf785ad38c374a6673079e8448f19b31.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
+        <dex dex="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-25.1.1_69cb7d50df67dce9ab0a6fc265f1555f7a3bde95.jar" />
     </item>
     <item
         is-multidex="false"
@@ -99,15 +108,6 @@
         revision="25.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
         <dex dex="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.1.1_b22e17a33fec901d08a2853d957cb1fa664a1e15.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
-        <dex dex="/Users/hanshao/Desktop/android/Sample/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.1_f07ccd603b84513e261599d136e5b22ffd15ebde.jar" />
     </item>
 
 </items>

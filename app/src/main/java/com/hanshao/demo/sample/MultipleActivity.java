@@ -13,7 +13,7 @@ import android.view.View;
 import com.hanshao.demo.sample.bean.ItemInfo;
 import com.hanshao.demo.sample.holder.HeaderHolder;
 import com.hanshao.demo.sample.provider.FristNormalProvider;
-import com.hanshao.demo.sample.provider.FristProvider;
+import com.hanshao.demo.sample.provider.TextProvider;
 import com.hanshao.universal.OnLoadMoreListener;
 import com.hanshao.universal.UniversalAdapter;
 
@@ -82,7 +82,7 @@ public class MultipleActivity extends AppCompatActivity implements OnLoadMoreLis
             mUniversalAdapter.setHeaderData(HEADERDATA);
         }
 
-        mUniversalAdapter.registerHolder("1",infos,new FristProvider(this,R.layout.holder_one));
+        mUniversalAdapter.registerHolder("1",infos,new TextProvider(this,R.layout.holder_text));
         mUniversalAdapter.registerHolder("2",otherInfos,new FristNormalProvider(this,R.layout.holder_normal_one));
         mUniversalAdapter.setOnLoadMoreListener(this);
         mRecyclerView.setAdapter(mUniversalAdapter);
