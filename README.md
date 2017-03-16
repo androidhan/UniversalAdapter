@@ -9,9 +9,11 @@
 - 已支持多类型item的线性与瀑布流显示切换
 
 ##效果
+
 ![][img]
 
 ##Download
+
 使用Gradle:
 
 ```gradle
