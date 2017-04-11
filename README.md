@@ -11,6 +11,23 @@
 ## 效果
 ![][img]
 
+
+### 交叉item复用效果(新增)
+
+![][img_uv]
+
+### 优化对比
+
+#### 优化前
+ 
+ ![][img_b]
+ 
+#### 优化后
+ 
+ ![][img_a]
+ 
+
+
 ## Download
 
 使用Gradle:
@@ -119,3 +136,6 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 
 --------------
 [img]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/b.gif
+[img_a]:https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/after.png
+[img_b]:https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/befor.png
+[img_uv]:https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/uv.gif
