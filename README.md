@@ -126,6 +126,20 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 ```
 #### 注意:调用此方法,RecyclerView底部会显示"重新加载更多"的UI,当点击"重新加载更多"的时候会调用加载更多的监听器的方法
 
+### 7.交叉Item复用注意
+
+```
+    mUniversalAdapter.registerHolder(key,datas,new ViewHolderProvider(context,资源布局Id));
+```
+当你需要加载更多数据刷新UI，若想复用之前相同item，必须这样调用
+
+```
+   mUniversalAdapter.registerHolder(key,newDatas,new ViewHolderProvider(context,资源布局Id));
+   //刷新UI
+   mUniversalAdapter.notifyMoreFinish(true);
+```
+确保key相同，否则复用不了先前注册的item。
+
 ### 其他
 #### 具体的核心实现参考博客链接:<http://www.xiaohanshao.cn/2017/03/04/recyclerview%E4%B8%87%E8%83%BD%E9%80%82%E9%85%8D%E5%99%A8/>
 #### 后续版本
