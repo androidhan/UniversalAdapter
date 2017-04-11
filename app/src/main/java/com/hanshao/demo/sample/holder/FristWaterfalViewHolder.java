@@ -35,4 +35,5 @@ public class FristWaterfalViewHolder extends UniversalViewHolder<ItemInfo> {
         mTextView.setText(data.content);
         mImageView.setImageResource(data.imageId);
     }
+
 }

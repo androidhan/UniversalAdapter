@@ -97,23 +97,33 @@ public class MultipleActivity extends AppCompatActivity implements OnLoadMoreLis
             @Override
             public void run() {
                 super.run();
-                SystemClock.sleep(3000);
+                SystemClock.sleep(1000);
                 index++;
-                mTempInfos = new ArrayList<ItemInfo>();
-                for (int i = otherInfos.size(); i <otherInfos.size()+10 ; i++) {
+                final List<ItemInfo> t = new ArrayList<ItemInfo>();
+                final List<String> s= new ArrayList<String>();
+                for (int i = mUniversalAdapter.getAllDataSize(); i <mUniversalAdapter.getAllDataSize()+10 ; i++) {
                     ItemInfo itemInfo =  new ItemInfo();
                     itemInfo.content= "第二种类型Item,当前位置:"+i;
                     itemInfo.imageId = ids[new Random().nextInt(2)];
-                    mTempInfos.add(itemInfo);
+                    s.add( itemInfo.content);
+                    t.add(itemInfo);
                 }
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
 
-                        if(index == 6){
+                        if(index == Integer.MAX_VALUE){
                             mUniversalAdapter.notifyMoreFinish(false);
                         }else{
-                            mUniversalAdapter.addDatas("2",mTempInfos);
+//                            int k = 2+index;
+//                            if(index % 2 == 1){
+//                                mUniversalAdapter.registerHolder("1",s,new TextProvider(MultipleActivity.this,R.layout.holder_text));
+//                                mUniversalAdapter.notifyMoreFinish(true);
+//                            }else{
+//                                mUniversalAdapter.registerHolder("2",t,new FristNormalProvider(MultipleActivity.this,R.layout.holder_normal_one));
+//                                mUniversalAdapter.notifyMoreFinish(true);
+//                            }
+                            mUniversalAdapter.addDatas("2",t);
                             mUniversalAdapter.notifyMoreFinish(true);
                         }
                     }

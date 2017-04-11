@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button mButtonThree;
     private Button mButtonFour;
     private Button mButtonFive;
+    private Button mButtonSix;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mButtonThree = (Button)findViewById(R.id.button_three);
         mButtonFour = (Button) findViewById(R.id.button_four);
         mButtonFive = (Button) findViewById(R.id.button_five);
+        mButtonSix = (Button) findViewById(R.id.button_six);
     }
 
     private void initListener() {
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mButtonThree.setOnClickListener(this);
         mButtonFour.setOnClickListener(this);
         mButtonFive.setOnClickListener(this);
-
+        mButtonSix.setOnClickListener(this);
 
 
     }
@@ -61,6 +63,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             MultipleActivity.startActivity(this,1);
         }else if(v.getId() == R.id.button_five){
             MutipleSwitchItemActivity.startActivity(this);
+        }else if(v.getId() == R.id.button_six){
+            OtherMultipleActivity.startActivity(this);
         }
     }
 }

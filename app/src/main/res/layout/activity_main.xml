@@ -83,4 +83,18 @@
         />
 
 
+    <Button
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:layout_height="40dp"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:text="多种类型的Item加载，支持错乱加载"
+        android:id="@+id/button_six"
+        />
+
+
 </LinearLayout>

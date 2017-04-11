@@ -6,6 +6,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -60,6 +62,7 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         mHolderMaps = new HashMap<>();
         mIsHeaderEnable = false;
         mTypeValues = new ArrayList<>();
+
     }
 
 
@@ -88,7 +91,20 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             mTypes.add(TYPE_NORMAL);
         }
         else{
-            mTypes.add(++mBaseType);
+            if(mHolderMaps.get(key) != null){
+                int k= -1;
+                int size = mKeys.size();
+                for (int i = 0; i <size ; i++) {
+                    if(mKeys.get(i) == key){
+                        k = i;
+                        break;
+                    }
+                }
+                mTypes.add(mTypes.get(k));
+            }else{
+                mTypes.add(++mBaseType);
+            }
+
         }
         mHolderMaps.put(key,holder);
     }
@@ -116,18 +132,23 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
              super.onAttachedToRecyclerView(recyclerView);
 
         mRecyclerView = recyclerView;
+
         mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
+
+
             }
+
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+
+
                 if (null != mOnLoadMoreListener && mIsFooterEnable && !mIsLoadingMore && dy > 0) {
                     int lastVisiblePosition = getLastVisiblePosition();
-
                     if (lastVisiblePosition + 1 == getItemCount()) {
 
                         setLoadMoring(true);
@@ -171,9 +192,7 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {;
 
-
         int type = getItemViewType(position);
-
         if(type == TYPE_HEADER){
 
             if(mHeaderViewHolder != null && mHeaderData!= null){
@@ -182,28 +201,87 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         } else if (type != TYPE_FOOTER && type != TYPE_HEADER) {
 
+
+
             UniversalViewHolder realHolder = (UniversalViewHolder) holder;
             realHolder.setPosition(position);
-            int size = mTypes.size();
-            int index = -1;
-            for (int i = 0; i < size; i++) {
-                if (mTypes.get(i) == type) {
-                    index = i;
-                    break;
-                }
-            }
-            if (index != -1) {
 
-                if(mKeys.size() *2 == mTypes.size()){
+            if(mKeys.size() *2 == mTypes.size()){
+
+                int size = mTypes.size();
+                int index = -1;
+                for (int i = 0; i < size; i++) {
+
+                    if (mTypes.get(i) == type  ) {
+                        index = i;
+                        break;
+                    }
+                }
+                if (index != -1) {
+
                     index /= 2;
+
+                    int count = mOtherItem;
+                    for (int i = 0; i < index;i++ ) {
+                        count += mTypeValues.get(i).size();
+                    }
+
+                    int realPosition = position - count;
+                    realHolder.setRawData(mTypeValues.get(index).get(realPosition));
                 }
-                int count = mOtherItem;
-                for (int i = 0; i < index;i++ ) {
-                    count += mTypeValues.get(i).size();
+
+            }else{
+
+                int newCount = 0;
+                int realPosition = 0;
+                int index = -1;
+                for (int i = 0; i <mTypeValues.size() ; i++) {
+
+                     if(position - mOtherItem == 0) {
+                         index = 0;
+                         realPosition = 0;
+                         break;
+                     }
+
+                    newCount += mTypeValues.get(i).size();
+
+                    if(i ==0 && position -mOtherItem < newCount){
+                        index=i;
+                        realPosition = position -mOtherItem;
+                        break;
+                    }
+
+                    if( i+1 != mTypeValues.size()){
+                        if(newCount < position + 1- mOtherItem && position + 1 -mOtherItem < newCount + mTypeValues.get(i+1).size()){
+                            realPosition = position - newCount - mOtherItem;
+                            index = i + 1;
+                            break;
+                        }else if(newCount -1 == position - mOtherItem){
+                            //临界点
+                            index = i;
+                            realPosition = mTypeValues.get(index).size()-1;
+                            break;
+
+                        }else if(newCount -1 +mTypeValues.get(i+1).size() == position - mOtherItem){
+                            //临界点
+                            index = i+1;
+                            realPosition = mTypeValues.get(index).size()-1;
+                            break;
+                        }
+                    }else{
+                        index = i;
+                        realPosition =  position- mOtherItem -  (newCount - mTypeValues.get(index).size());
+                        break;
+                    }
+
                 }
-                int realPosition = position - count;
+
                 realHolder.setRawData(mTypeValues.get(index).get(realPosition));
+
             }
+
+
+
 
         }
 
@@ -275,7 +353,6 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             return mFooterViewHolder;
         }
         else {
-
 
             int size = mTypes.size();
             int index = -1 ;
@@ -370,6 +447,16 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             mOtherItem=1;
         }
 
+        return count;
+    }
+
+    //添加
+    public int getAllDataSize(){
+        int size = mTypeValues.size();
+        int count= 0;
+        for (int i = 0; i <size ; i++) {
+            count += mTypeValues.get(i).size();
+        }
         return count;
     }
 

@@ -30,4 +30,5 @@ public class TextViewHolder extends UniversalViewHolder<String> {
     public void refreshUi(String data) {
         mTextView.setText(data);
     }
+
 }

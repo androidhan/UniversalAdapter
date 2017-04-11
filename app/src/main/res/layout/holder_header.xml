@@ -9,9 +9,9 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:textSize="20sp"
-        android:background="#F00"
         android:textColor="#FFF"
         android:gravity="center"
+        android:background="#F00"
         android:id="@+id/text_view"
         />
 

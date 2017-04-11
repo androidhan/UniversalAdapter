@@ -34,8 +34,11 @@
                   android:screenOrientation="nosensor"
                   android:launchMode="singleTop"
             />
+        <activity android:name=".OtherMultipleActivity"
+                  android:screenOrientation="nosensor"
+                  android:launchMode="singleTop"
 
-
+                  />
 
     </application>
 

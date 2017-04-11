@@ -32,4 +32,5 @@ public class HeaderHolder extends UniversalViewHolder<String>{
     public void refreshUi(String data) {
         mTextView.setText(data);
     }
+
 }
