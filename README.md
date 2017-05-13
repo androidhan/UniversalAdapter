@@ -134,5 +134,5 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 --------------
 [img]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/b.gif
 [uv]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/uv.gif
-[after]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/after.gif
-[befor]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/befor.gif
+[after]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/after.png
+[befor]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/befor.png
