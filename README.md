@@ -7,23 +7,28 @@
 - 支持单类型item线性与瀑布流显示的切换
 - 支持加载状态的失败时,可重新触发加载更多
 - 已支持多类型item的线性与瀑布流显示切换
-- 已支持错乱交叉item复用
+- 新增:已支持多类型item的交叉内存复用(可做类似淘宝item的效果)
+
 
 ## 效果
 ![][img]
 
-## 新增:错乱交叉
 
-![][uv]
+### 交叉item复用效果(新增)
 
+![][img_uv]
 
-### 优化钱
+### 优化对比
 
-![][befor]
+#### 优化前
+ 
+ ![][img_b]
+ 
+#### 优化后
+ 
+ ![][img_a]
+ 
 
-### 优化后
-
-![][after]
 
 ## Download
 
@@ -123,6 +128,20 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 ```
 #### 注意:调用此方法,RecyclerView底部会显示"重新加载更多"的UI,当点击"重新加载更多"的时候会调用加载更多的监听器的方法
 
+### 7.交叉Item复用注意
+
+```
+    mUniversalAdapter.registerHolder(key,datas,new ViewHolderProvider(context,资源布局Id));
+```
+当你需要加载更多数据刷新UI，若想复用之前相同item，必须这样调用
+
+```
+   mUniversalAdapter.registerHolder(key,newDatas,new ViewHolderProvider(context,资源布局Id));
+   //刷新UI
+   mUniversalAdapter.notifyMoreFinish(true);
+```
+确保key相同，否则复用不了先前注册的item。
+
 ### 其他
 #### 具体的核心实现参考博客链接:<http://www.xiaohanshao.cn/2017/03/04/recyclerview%E4%B8%87%E8%83%BD%E9%80%82%E9%85%8D%E5%99%A8/>
 #### 后续版本
@@ -133,6 +152,6 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 
 --------------
 [img]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/b.gif
-[uv]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/uv.gif
-[after]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/after.png
-[befor]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/befor.png
+[img_a]:https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/after.png
+[img_b]:https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/befor.png
+[img_uv]:https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/uv.gif
