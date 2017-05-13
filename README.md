@@ -7,9 +7,23 @@
 - 支持单类型item线性与瀑布流显示的切换
 - 支持加载状态的失败时,可重新触发加载更多
 - 已支持多类型item的线性与瀑布流显示切换
+- 已支持错乱交叉item复用
 
 ## 效果
 ![][img]
+
+## 新增:错乱交叉
+
+![][uv]
+
+
+### 优化钱
+
+![][befor]
+
+### 优化后
+
+![][after]
 
 ## Download
 
@@ -17,7 +31,7 @@
 
 ```gradle
 dependencies {
-    compile 'com.hanshao:universallibrary:1.1.0'
+    compile 'com.hanshao:universallibrary:1.2.0'
 }
 ```
 ## 使用
@@ -119,3 +133,6 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 
 --------------
 [img]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/b.gif
+[uv]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/uv.gif
+[after]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/after.gif
+[befor]: https://raw.githubusercontent.com/androidhan/UniversalAdapter/master/images/befor.gif
