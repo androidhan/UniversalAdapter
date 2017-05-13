@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.view.GestureDetector;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -133,10 +134,12 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         mRecyclerView = recyclerView;
 
+
         mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
+
 
 
             }
@@ -145,6 +148,8 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
+
+
 
 
                 if (null != mOnLoadMoreListener && mIsFooterEnable && !mIsLoadingMore && dy > 0) {
@@ -257,7 +262,6 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                             index = i + 1;
                             break;
                         }else if(newCount -1 == position - mOtherItem){
-                            //临界点
                             index = i;
                             realPosition = mTypeValues.get(index).size()-1;
                             break;
@@ -348,7 +352,7 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             return mHeaderViewHolder;
         }
         if (viewType == TYPE_FOOTER) {
-            mFooterViewHolder = new FooterViewHolder(View.inflate(parent.getContext(),R.layout.recycler_view_foot,null));
+            mFooterViewHolder = new FooterViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_foot,parent,false));
             mFooterViewHolder.setOnTryListener(this);
             return mFooterViewHolder;
         }
@@ -368,15 +372,15 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
                     key = mKeys.get(index/2);
                     if (mRecyclerView.getLayoutManager() instanceof LinearLayoutManager) {
-                        return mHolderMaps.get(key).newInstance();
+                        return mHolderMaps.get(key).newInstance(parent);
                     }
                     else if (mRecyclerView.getLayoutManager() instanceof StaggeredGridLayoutManager) {
-                        return mHolderMaps.get(key+WATERFAL).newInstance();
+                        return mHolderMaps.get(key+WATERFAL).newInstance(parent);
                     }
                 }
                 else{
                     key = mKeys.get(index);
-                    return mHolderMaps.get(key).newInstance();
+                    return mHolderMaps.get(key).newInstance(parent);
                 }
             }
             throw new RuntimeException();
@@ -450,7 +454,6 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         return count;
     }
 
-    //添加
     public int getAllDataSize(){
         int size = mTypeValues.size();
         int count= 0;

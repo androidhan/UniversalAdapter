@@ -2,121 +2,112 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
-        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.1.1_7d55f7a37f870b621878cab8158dabfd9c04c73c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
-        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-25.1.1_85bc5ff6581c9f40cbc9bffce630883f43ad6cdf/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3b46ad7872274ce392155fb766b6174c94e4c273">
-        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_0e30dbc7487c9fe84ff01fba662b2c3067065c8e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
-        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.1.1_7565064208f339701b9b41f6471e571510d8f669/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.1.1/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="c03bf57f358aa10d253f21989e93bcf6014b3b17">
-        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.1.1_a9fc05de7ac48f148eb7809897f6923844f73a13/classes.dex" />
+        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-25.1.1_a9fc05de7ac48f148eb7809897f6923844f73a13.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.1/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.1.1/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.1.1_d8f7d22e278212b6f037ca1086ef618395e416ee/classes.dex" />
+        sha1="3e04ac8ca644ea7baddf6fdcf72e15c79e9df94a">
+        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-25.1.1_7d55f7a37f870b621878cab8158dabfd9c04c73c.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/jars/classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
-        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.1.1_3e172b9c0c2c476090e9ae6cdf6b9e0f7085be2b/classes.dex" />
+        sha1="02741d05d4b697fba5e279e9881aaa1da0ca7c7f">
+        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-25.1.1_7565064208f339701b9b41f6471e571510d8f669.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
-        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.1.1_94a051a108f9bc72655d3266fa7b6998dab888ac/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
-        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.1.1_b73918a217d1fe6619437dbffb2fe155f85c562a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
-        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.1.1_8c6bdfd25a72b516992b0fb7f411b090de2f316c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
+        is-multidex="false"
         jar="/Users/hanshao/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.1.1/support-annotations-25.1.1.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="b59b6ee8d6ecc03e672d253800430343493a6ed8">
-        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.1.1_fac74e78e48605f34ff5d89762211e1f741ae764/classes.dex" />
+        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/pre-dexed/debug/support-annotations-25.1.1_fac74e78e48605f34ff5d89762211e1f741ae764.jar" />
     </item>
     <item
-        is-multidex="true"
+        is-multidex="false"
+        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7bde4c34162092e0a77e7f12dc85ed77c484cf5c">
+        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-25.1.1_94a051a108f9bc72655d3266fa7b6998dab888ac.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d191c1a09e4892d059e5ce749e4ad4e08129e35">
+        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-25.1.1_3e172b9c0c2c476090e9ae6cdf6b9e0f7085be2b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-25.1.1_d8f7d22e278212b6f037ca1086ef618395e416ee.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.1.1/jars/classes.jar"
-        jumboMode="true"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="ecb496cc08dd52551fc5ec6db3bc0632e95a89bb">
-        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.1.1_9d288287f38b74d5c7e0003ee7bf8bfe531b59cf/classes.dex" />
+        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-25.1.1_9d288287f38b74d5c7e0003ee7bf8bfe531b59cf.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.1.1/jars/classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="25.0.2"
-        sha1="71ef4ce06de114c44f31dcc3b00039df99a594ea">
-        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_9343cfe74e61d789243fbfa4fc53af491a0490c2/classes.dex" />
+        sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
+        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.1.1_8c6bdfd25a72b516992b0fb7f411b090de2f316c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.hanshao/universallibrary/1.2.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="75f2045167a6520fa2ad6d3de62ef45828af65de">
+        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/pre-dexed/debug/com.hanshao-universallibrary-1.2.0_4ca4c51fb5afccc6fe91b7732af213f50aed4188.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0fb891e8f0cfba0513043a7bb357513d229ca2cd">
+        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-25.1.1_b73918a217d1fe6619437dbffb2fe155f85c562a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/25.1.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="c9649557905bf7a80fca9e0d54cbcb7662627860">
+        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/pre-dexed/debug/com.android.support-recyclerview-v7-25.1.1_85bc5ff6581c9f40cbc9bffce630883f43ad6cdf.jar" />
     </item>
 
 </items>

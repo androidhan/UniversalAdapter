@@ -5,3 +5,5 @@
 /app/build/
 /universallibrary/build/
 /.idea/
+/gradlew
+/gradlew.bat

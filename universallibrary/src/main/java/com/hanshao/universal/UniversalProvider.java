@@ -1,7 +1,9 @@
 package com.hanshao.universal;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 /**
  * AUTHOR: hanshao
@@ -19,11 +21,10 @@ public abstract class UniversalProvider<T> {
         mResId = resId;
     }
 
-    public UniversalViewHolder newInstance(){
-        View v = View.inflate(mContext,mResId,null);
+    public UniversalViewHolder newInstance(ViewGroup parent){
+        View v = LayoutInflater.from(mContext).inflate(mResId,parent,false);
         return realNewInstance(v);
     }
-
 
     public abstract UniversalViewHolder<T> realNewInstance(View v);
 }

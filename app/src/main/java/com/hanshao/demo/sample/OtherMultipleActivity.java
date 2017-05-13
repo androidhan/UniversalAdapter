@@ -73,7 +73,6 @@ public class OtherMultipleActivity extends AppCompatActivity implements OnLoadMo
         }
 
         mUniversalAdapter.setOnLoadMoreListener(this);
-        Log.e("TAG","执行了:"+mUniversalAdapter.getAllDataSize());
 
         mRecyclerView.setAdapter(mUniversalAdapter);
     }
@@ -143,3 +142,4 @@ public class OtherMultipleActivity extends AppCompatActivity implements OnLoadMo
         }.start();
     }
 }
+
