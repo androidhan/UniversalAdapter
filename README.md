@@ -36,7 +36,7 @@
 
 ```gradle
 dependencies {
-    compile 'com.hanshao:universallibrary:1.2.0'
+    compile 'com.hanshao:universallibrary:1.2.1'
 }
 ```
 ## 使用
