@@ -1,5 +1,6 @@
 package com.hanshao.universal;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,21 +11,20 @@ import android.view.ViewGroup;
  * DATE: 17/2/27.
  */
 
-public abstract class UniversalProvider<T> {
+public abstract class UniversalProvider {
 
-    private UniversalViewHolder<T> mUniversalViewHolder;
-    private Context mContext;
     private int mResId;
 
-    public UniversalProvider(Context context, int resId){
-        mContext = context;
+    public UniversalProvider(int resId){
         mResId = resId;
     }
 
-    public UniversalViewHolder newInstance(ViewGroup parent){
-        View v = LayoutInflater.from(mContext).inflate(mResId,parent,false);
-        return realNewInstance(v);
+    public UniversalViewHolder newInstance(Context context,ViewGroup parent){
+        View v = LayoutInflater.from(context).inflate(mResId,parent,false);
+        UniversalViewHolder universalViewHolder = realNewInstance(v);
+        universalViewHolder.attachActivity((Activity) context);
+        return universalViewHolder;
     }
 
-    public abstract UniversalViewHolder<T> realNewInstance(View v);
+    public abstract UniversalViewHolder realNewInstance(View v);
 }

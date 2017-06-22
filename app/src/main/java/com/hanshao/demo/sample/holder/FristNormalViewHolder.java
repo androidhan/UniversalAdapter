@@ -27,6 +27,7 @@ public class FristNormalViewHolder extends UniversalViewHolder<ItemInfo> {
     protected void initView(View v) {
         mImageView = (ImageView) v.findViewById(R.id.image_view);
         mTextView = (TextView) v.findViewById(R.id.text_view);
+
     }
 
     @Override

@@ -50,7 +50,7 @@
         android:layout_height="40dp"
         android:textSize="16sp"
         android:textColor="#000"
-        android:text="多种类型的Item显示"
+        android:text="多种类型的Item显示(添加Item事件)"
         android:id="@+id/button_three"
         />
 

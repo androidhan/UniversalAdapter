@@ -62,8 +62,8 @@ public class SwitchItemActivity extends AppCompatActivity implements OnLoadMoreL
             infos.add(itemInfo);
 
         }
-        mUniversalAdapter = new UniversalAdapter();
-        mUniversalAdapter.registerHolder("1",infos,new FristNormalProvider(this,R.layout.holder_normal_one),new FristWaterfalProvider(this,R.layout.holder_waterfal_one));
+        mUniversalAdapter = new UniversalAdapter(this);
+        mUniversalAdapter.registerHolder("1",infos,new FristNormalProvider(R.layout.holder_normal_one),new FristWaterfalProvider(R.layout.holder_waterfal_one));
         mUniversalAdapter.setOnLoadMoreListener(this);
         mRecyclerView.setAdapter(mUniversalAdapter);
     }

@@ -14,13 +14,13 @@ import com.hanshao.universal.UniversalViewHolder;
  * ACTION:
  */
 
-public class FristNormalProvider extends UniversalProvider<ItemInfo> {
-    public FristNormalProvider(Context context, int resId) {
-        super(context, resId);
+public class FristNormalProvider extends UniversalProvider {
+    public FristNormalProvider( int resId) {
+        super( resId);
     }
 
     @Override
-    public UniversalViewHolder<ItemInfo> realNewInstance(View v) {
+    public UniversalViewHolder realNewInstance(View v) {
         return new FristNormalViewHolder(v);
     }
 }

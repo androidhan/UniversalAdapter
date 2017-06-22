@@ -13,14 +13,14 @@ import com.hanshao.universal.UniversalViewHolder;
  * ACTION:item提供者
  */
 
-public class TextProvider extends UniversalProvider<String> {
+public class TextProvider extends UniversalProvider {
 
-    public TextProvider(Context context, int resId) {
-        super(context, resId);
+    public TextProvider(int resId) {
+        super( resId);
     }
 
     @Override
-    public UniversalViewHolder<String> realNewInstance(View v) {
+    public UniversalViewHolder realNewInstance(View v) {
         return new TextViewHolder(v);
     }
 }

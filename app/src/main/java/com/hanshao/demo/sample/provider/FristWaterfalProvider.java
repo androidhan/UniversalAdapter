@@ -14,9 +14,9 @@ import com.hanshao.universal.UniversalViewHolder;
  * ACTION:
  */
 
-public class FristWaterfalProvider extends UniversalProvider<ItemInfo> {
-    public FristWaterfalProvider(Context context, int resId) {
-        super(context, resId);
+public class FristWaterfalProvider extends UniversalProvider {
+    public FristWaterfalProvider(int resId) {
+        super(resId);
     }
 
     @Override

@@ -13,9 +13,9 @@ import com.hanshao.universal.UniversalViewHolder;
  * ACTION:
  */
 
-public class TowProvider extends UniversalProvider<String> {
-    public TowProvider(Context context, int resId) {
-        super(context, resId);
+public class TowProvider extends UniversalProvider{
+    public TowProvider(int resId) {
+        super(resId);
     }
 
     @Override

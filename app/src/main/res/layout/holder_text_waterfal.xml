@@ -5,7 +5,7 @@
               android:minWidth="1000dp"
               android:gravity="center"
               android:padding="15dp"
-              android:layout_height="match_parent">
+              android:layout_height="wrap_content">
 
     <TextView
         android:layout_width="100dp"

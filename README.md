@@ -10,6 +10,13 @@
 - 新增:已支持多类型item的交叉内存复用(可做类似淘宝item的效果)
 
 
+## 1.3.2版本新增功能
+- 支持每注册一种item添加各自的OnItemClickListener(条目点击事件)
+- 支持header添加点击的监听
+- 在UniversalViewHolder提供了保护成员mActivity，更加方便在UniversalViewHolder可以在item处理自己的业务逻辑
+- 对UniversalAdapter构造以及UniversalProvider结构以及UniversalAdapter有了小变化，使得UniversalAdapter使用起来更加方便
+- 与1.3.1版本不兼容
+
 ## 效果
 ![][img]
 
@@ -42,7 +49,7 @@ dependencies {
 ## 使用
 ### 1.创建UniversalAdapter
 ```
-    mUniversalAdapter = new UniversalAdapter();
+    mUniversalAdapter = new UniversalAdapter(activity);
 ```
 ### 2.继承UniversalViewHolder类
 ```
@@ -65,15 +72,14 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 ```
 ### 3.继承UniversalProvider类
 ```
-  //ViewHolder提供者 数据类型与提供的ViewHolder一致
-  public class DemoProvider extends UniversalProvider<数据类型> {
+  public class DemoProvider extends UniversalProvider {
 
-    public DemoProvider(Context context, int resId) {
-        super(context, resId);
+    public DemoProvider(int resId) {
+        super(resId);
     }
 
     @Override
-    public UniversalViewHolder<数据类型> realNewInstance(View v) {
+    public UniversalViewHolder realNewInstance(View v) {
          //提供ViewHolder
          return new DemoViewHolder(v);
     }
@@ -82,13 +88,24 @@ public class DemoViewHolder extends UniversalViewHolder<数据类型> {
 ### 4.将UniversalProvider注册到UniversalAdapter中
 #### 一种类型Item的使用
 ```
-    mUniversalAdapter.registerHolder(key,数据集合,new DemoProvider(context,布局资源id));
+    //未添加item点击监听
+    mUniversalAdapter.registerHolder(key,数据集合,new DemoProvider(布局资源id));
+    //添加item点击监听
+    mUniversalAdapter.registerHolder(key,数据集合,new DemoProvider(布局资源id),new OnItemClickListener<E>(){
+        void onItemClick(int recyclerPosition,int dataPosition,E itemData){
+            //recyclerPosition:item在RecyclerView的位置
+            //dataPosition:itemData在数据集合(List)中所在的索引
+            //itemData:item所需的对应的数据
+        }
+    });
     mRecyclerView.setAdapter(mUniversalAdapter);
 ```
 #### 多种类型Item的使用
 ```
-    mUniversalAdapter.registerHolder(key,数据集合,new DemoProvider(context,布局资源id));
-    mUniversalAdapter.registerHolder(key,数据集合,new SecondProvider(context,布局资源id));
+    //未添加item监听，需监听item点击事件如上
+    mUniversalAdapter.registerHolder(key,数据集合,new DemoProvider(布局资源id));
+     //未添加item监听，需监听item点击事件如上
+    mUniversalAdapter.registerHolder(key,数据集合,new SecondProvider(布局资源id));
 ```
 ##### 注意事项:多类型Item的使用时,不同Item注册Holder需要的参数key一定要不相同
 #### 一种类型Item的线性与瀑布流切换

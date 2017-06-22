@@ -66,9 +66,9 @@ public class MutipleSwitchItemActivity extends AppCompatActivity implements OnLo
             infos.add(itemInfo);
             otherInfos.add("多类型的切换显示,当前位置:"+i);
         }
-        mUniversalAdapter = new UniversalAdapter();
-        mUniversalAdapter.registerHolder("2",otherInfos,new TextProvider(this,R.layout.holder_text),new TextWaterfalProvider(this,R.layout.holder_text_waterfal));
-        mUniversalAdapter.registerHolder("1",infos,new FristNormalProvider(this,R.layout.holder_normal_one),new FristWaterfalProvider(this,R.layout.holder_waterfal_one));
+        mUniversalAdapter = new UniversalAdapter(this);
+        mUniversalAdapter.registerHolder("2",otherInfos,new TextProvider(R.layout.holder_text),new TextWaterfalProvider(R.layout.holder_text_waterfal));
+        mUniversalAdapter.registerHolder("1",infos,new FristNormalProvider(R.layout.holder_normal_one),new FristWaterfalProvider(R.layout.holder_waterfal_one));
         mUniversalAdapter.setOnLoadMoreListener(this);
         mRecyclerView.setAdapter(mUniversalAdapter);
     }

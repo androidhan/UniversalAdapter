@@ -21,6 +21,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.hanshao/universallibrary/1.3.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a8376b7451fe206d301152f2e292a97bcad9e4f">
+        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/pre-dexed/debug/com.hanshao-universallibrary-1.3.2_7d4a43beecdcbb5bf6d7177d8448d05dcf7b895e.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.1.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -81,15 +90,6 @@
         revision="25.0.2"
         sha1="e2719c102dca3a7a5b02ce07f769362da6ddb4ab">
         <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-25.1.1_8c6bdfd25a72b516992b0fb7f411b090de2f316c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/hanshao/UniversalAdapter/app/build/intermediates/exploded-aar/com.hanshao/universallibrary/1.2.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="75f2045167a6520fa2ad6d3de62ef45828af65de">
-        <dex dex="/Users/hanshao/UniversalAdapter/app/build/intermediates/pre-dexed/debug/com.hanshao-universallibrary-1.2.0_4ca4c51fb5afccc6fe91b7732af213f50aed4188.jar" />
     </item>
     <item
         is-multidex="false"

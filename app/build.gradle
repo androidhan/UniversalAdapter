@@ -4,7 +4,6 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
 
-
     defaultConfig {
         applicationId "com.hanshao.demo.sample"
         minSdkVersion 16
@@ -27,8 +26,9 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     //封装的adapter
-//    compile 'com.hanshao:universallibrary:1.1.0'
+    compile 'com.hanshao:universallibrary:1.3.2'
+//    compile 'com.android.support:recyclerview-v7:25.1.1'
     compile 'com.android.support:appcompat-v7:25.1.1'
     testCompile 'junit:junit:4.12'
-    compile project(':universallibrary')
+//    compile project(':universallibrary')
 }

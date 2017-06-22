@@ -45,12 +45,12 @@ public class SingleItemActivity extends AppCompatActivity implements OnLoadMoreL
 
     private void initData() {
         //模拟数据
-        mUniversalAdapter = new UniversalAdapter();
+        mUniversalAdapter = new UniversalAdapter(this);
         infos = new ArrayList<>();
         for (int i = 0; i < 10 ; i++) {
             infos.add("单一的item类型,当前位置:"+i);
         }
-        mUniversalAdapter.registerHolder("1",infos,new TextProvider(this,R.layout.holder_text));
+        mUniversalAdapter.registerHolder("1",infos,new TextProvider(R.layout.holder_text));
         mUniversalAdapter.setOnLoadMoreListener(this);
         mRecyclerView.setAdapter(mUniversalAdapter);
     }

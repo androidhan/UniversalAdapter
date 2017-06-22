@@ -14,10 +14,10 @@ import com.hanshao.universal.UniversalViewHolder;
  * ACTION:item提供者
  */
 
-public class TextWaterfalProvider extends UniversalProvider<String> {
+public class TextWaterfalProvider extends UniversalProvider {
 
-    public TextWaterfalProvider(Context context, int resId) {
-        super(context, resId);
+    public TextWaterfalProvider(int resId) {
+        super(resId);
     }
 
     @Override

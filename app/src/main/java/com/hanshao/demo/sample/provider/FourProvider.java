@@ -14,13 +14,13 @@ import com.hanshao.universal.UniversalViewHolder;
  * ACTION:
  */
 
-public class FourProvider extends UniversalProvider<String> {
-    public FourProvider(Context context, int resId) {
-        super(context, resId);
+public class FourProvider extends UniversalProvider{
+    public FourProvider( int resId) {
+        super(resId);
     }
 
     @Override
-    public UniversalViewHolder<String> realNewInstance(View v) {
+    public UniversalViewHolder realNewInstance(View v) {
         return new FourViewHolder(v);
     }
 }

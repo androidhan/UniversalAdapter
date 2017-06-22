@@ -13,9 +13,9 @@ import com.hanshao.universal.UniversalViewHolder;
  * ACTION:
  */
 
-public class ThreeProvider extends UniversalProvider<String> {
-    public ThreeProvider(Context context, int resId) {
-        super(context, resId);
+public class ThreeProvider extends UniversalProvider{
+    public ThreeProvider(int resId) {
+        super(resId);
     }
 
     @Override

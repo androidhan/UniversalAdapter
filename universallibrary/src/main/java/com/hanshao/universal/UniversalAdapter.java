@@ -1,11 +1,14 @@
 package com.hanshao.universal;
 
+import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -25,9 +28,6 @@ import java.util.Map;
 
 public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements OnTryListener {
 
-
-
-
     public final static int TYPE_NORMAL = 0;
     public final static int TYPE_HEADER = 1;
     public final static int TYPE_FOOTER = 2;
@@ -45,6 +45,8 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private List<List<?>> mTypeValues;
     private List<Integer>  mTypes ;
     private Map<String,UniversalProvider> mHolderMaps;
+    private SparseArray<OnItemClickListener> mOnItemOnClickListeners;
+    private OnHeaderOnClickListener mOnHeaderOnClickListener;
 
     private boolean mIsHeaderEnable= false ;
     private boolean mIsFooterEnable = true ;
@@ -56,17 +58,18 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     private OnLoadMoreListener mOnLoadMoreListener;
     private Object mHeaderData;
+    private Activity mActivity;
 
-    public UniversalAdapter() {
+    public UniversalAdapter(Activity activity) {
+        mActivity = activity;
         mTypes = new ArrayList<>();
         mKeys = new ArrayList<>();
         mHolderMaps = new HashMap<>();
         mIsHeaderEnable = false;
         mTypeValues = new ArrayList<>();
+        mOnItemOnClickListeners = new SparseArray<>();
 
     }
-
-
 
     public void registerHolder(@NonNull String key, @NonNull List<?> items, @NonNull UniversalProvider holder, @NonNull UniversalProvider waterfalHolder){
 
@@ -83,33 +86,71 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         mHolderMaps.put(key+WATERFAL,waterfalHolder);
     }
 
-
-    public void registerHolder(@NonNull String key, @NonNull List<?> items, @NonNull UniversalProvider holder){
+    public <E> void registerHolder(@NonNull String key, @NonNull List<?> items, @NonNull UniversalProvider holder,
+                               @NonNull UniversalProvider waterfalHolder,@NonNull OnItemClickListener<E> onItemOnClickListener ){
 
         mKeys.add(key);
+        mOnItemOnClickListeners.put(mTypeValues.size(),onItemOnClickListener);
         mTypeValues.add(items);
         if(mTypes.size() ==0){
             mTypes.add(TYPE_NORMAL);
         }
         else{
-            if(mHolderMaps.get(key) != null){
-                int k= -1;
+            mTypes.add(++mBaseType);
+        }
+        mTypes.add(++mBaseType);
+        mHolderMaps.put(key,holder);
+        mHolderMaps.put(key+WATERFAL,waterfalHolder);
+    }
+
+
+    public void registerHolder(@NonNull String key, @NonNull List<?> items, @NonNull UniversalProvider holder) {
+        mKeys.add(key);
+        mTypeValues.add(items);
+        if (mTypes.size() == 0) {
+            mTypes.add(TYPE_NORMAL);
+        } else {
+            if (mHolderMaps.get(key) != null) {
+                int k = -1;
                 int size = mKeys.size();
-                for (int i = 0; i <size ; i++) {
-                    if(mKeys.get(i) == key){
+                for (int i = 0; i < size; i++) {
+                    if (mKeys.get(i) == key) {
                         k = i;
                         break;
                     }
                 }
                 mTypes.add(mTypes.get(k));
-            }else{
+            } else {
                 mTypes.add(++mBaseType);
             }
-
         }
-        mHolderMaps.put(key,holder);
+        mHolderMaps.put(key, holder);
     }
 
+
+    public <E> void registerHolder(@NonNull String key, @NonNull List<?> items, @NonNull UniversalProvider holder,@NonNull OnItemClickListener<E> onItemOnClickListener) {
+        mKeys.add(key);
+        mOnItemOnClickListeners.put(mTypeValues.size(),onItemOnClickListener);
+        mTypeValues.add(items);
+        if (mTypes.size() == 0) {
+            mTypes.add(TYPE_NORMAL);
+        } else {
+            if (mHolderMaps.get(key) != null) {
+                int k = -1;
+                int size = mKeys.size();
+                for (int i = 0; i < size; i++) {
+                    if (mKeys.get(i) == key) {
+                        k = i;
+                        break;
+                    }
+                }
+                mTypes.add(mTypes.get(k));
+            } else {
+                mTypes.add(++mBaseType);
+            }
+        }
+        mHolderMaps.put(key, holder);
+    }
 
 
     public List<?> getDatas(@NonNull String key) {
@@ -118,14 +159,11 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
 
-
     public void setData(@NonNull String key, @NonNull List<?> datas){
         int index = mKeys.indexOf(key);
         List items = mTypeValues.get(index);
         items.clear();
         items.addAll(datas);
-
-
     }
 
     @Override
@@ -134,28 +172,19 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         mRecyclerView = recyclerView;
 
-
         mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
                 super.onScrollStateChanged(recyclerView, newState);
-
-
-
             }
-
 
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
 
-
-
-
                 if (null != mOnLoadMoreListener && mIsFooterEnable && !mIsLoadingMore && dy > 0) {
                     int lastVisiblePosition = getLastVisiblePosition();
                     if (lastVisiblePosition + 1 == getItemCount()) {
-
                         setLoadMoring(true);
                         mLoadMorePosition = lastVisiblePosition;
                         if(mOnLoadMoreListener != null){
@@ -164,7 +193,6 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     }
                 }
             }
-
         });
     }
 
@@ -193,7 +221,6 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
 
-
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {;
 
@@ -202,15 +229,16 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
             if(mHeaderViewHolder != null && mHeaderData!= null){
                 mHeaderViewHolder.setRawData(mHeaderData);
+                    doHeaderOnClick(mHeaderViewHolder.getContentView(),mOnHeaderOnClickListener,mHeaderData);
             }
 
         } else if (type != TYPE_FOOTER && type != TYPE_HEADER) {
 
-
-
             UniversalViewHolder realHolder = (UniversalViewHolder) holder;
             realHolder.setPosition(position);
-
+            Object data = null;
+            int dataPosition = -1;
+            int indexListener = -1;
             if(mKeys.size() *2 == mTypes.size()){
 
                 int size = mTypes.size();
@@ -232,7 +260,9 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                     }
 
                     int realPosition = position - count;
-                    realHolder.setRawData(mTypeValues.get(index).get(realPosition));
+                    dataPosition = realPosition;
+                    indexListener = index;
+                    data= mTypeValues.get(index).get(realPosition);
                 }
 
             }else{
@@ -277,20 +307,54 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                         realPosition =  position- mOtherItem -  (newCount - mTypeValues.get(index).size());
                         break;
                     }
-
                 }
-
-                realHolder.setRawData(mTypeValues.get(index).get(realPosition));
-
+                dataPosition  = realPosition;
+                indexListener  = index;
+                data =mTypeValues.get(index).get(realPosition);
             }
+            realHolder.setRawData(data);
 
-
-
-
+            doItemOnClick(mOnItemOnClickListeners,indexListener,realHolder.getContentView(),position,dataPosition,data);
         }
 
     }
 
+    private void doHeaderOnClick(View v, final OnHeaderOnClickListener onHeaderOnClickListener, final Object headerData) {
+        if(v!=null && onHeaderOnClickListener!=null){
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onHeaderOnClickListener.onHeaderClick(headerData);
+                }
+            });
+        }
+    }
+
+    public void doItemOnClick(SparseArray<OnItemClickListener> onItemOnClickListeners,int index, View v, final int recyclerPosition, final int dataPoisiton, final Object data){
+
+        if(onItemOnClickListeners.size() != 0 && index != -1){
+            final OnItemClickListener onItemOnClickListener = onItemOnClickListeners.get(index);
+            if(onItemOnClickListener != null &&v!=null && recyclerPosition!=-1 && dataPoisiton != -1 && data!=null){
+                v.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        onItemOnClickListener.onItemClick(recyclerPosition,dataPoisiton,data);
+                    }
+                });
+            }
+        }
+
+    }
+
+
+
+    public interface OnHeaderOnClickListener<E>{
+        void onHeaderClick(E itemData);
+    }
+
+    public interface OnItemClickListener<E>{
+        void onItemClick(int recyclerPosition,int dataPosition,E itemData);
+    }
 
 
     public void switchLayoutManager(RecyclerView.LayoutManager layoutManager) {
@@ -372,15 +436,15 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
                     key = mKeys.get(index/2);
                     if (mRecyclerView.getLayoutManager() instanceof LinearLayoutManager) {
-                        return mHolderMaps.get(key).newInstance(parent);
+                        return mHolderMaps.get(key).newInstance(mActivity,parent);
                     }
                     else if (mRecyclerView.getLayoutManager() instanceof StaggeredGridLayoutManager) {
-                        return mHolderMaps.get(key+WATERFAL).newInstance(parent);
+                        return mHolderMaps.get(key+WATERFAL).newInstance(mActivity,parent);
                     }
                 }
                 else{
                     key = mKeys.get(index);
-                    return mHolderMaps.get(key).newInstance(parent);
+                    return mHolderMaps.get(key).newInstance(mActivity,parent);
                 }
             }
             throw new RuntimeException();
@@ -472,6 +536,11 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         this.mHeaderViewHolder = headerViewHolder;
     }
 
+    public <E> void addHeaderViewHolder(UniversalViewHolder headerViewHolder,OnHeaderOnClickListener<E> onHeaderOnClickListener) {
+        this.mHeaderViewHolder = headerViewHolder;
+        this.mOnHeaderOnClickListener = onHeaderOnClickListener;
+    }
+
 
     public void setLoadMoring(boolean loadMoring){
         this.mIsLoadingMore  = loadMoring;
@@ -491,6 +560,9 @@ public  class UniversalAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public void setHeaderData(Object headerData){
         this.mHeaderData = headerData;
+        if(mRecyclerView!=null){
+            notifyDataSetChanged();
+        }
     }
 
     public Object getHeaderData(){

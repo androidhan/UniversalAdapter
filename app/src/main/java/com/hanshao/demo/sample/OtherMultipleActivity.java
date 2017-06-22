@@ -66,7 +66,7 @@ public class OtherMultipleActivity extends AppCompatActivity implements OnLoadMo
     private void initData() {
 
 
-        mUniversalAdapter = new UniversalAdapter();
+        mUniversalAdapter = new UniversalAdapter(this);
 
         for (int i = 0; i <6 ; i++) {
             register();
@@ -85,8 +85,8 @@ public class OtherMultipleActivity extends AppCompatActivity implements OnLoadMo
             mOtherInfos.add("date:"+System.currentTimeMillis());
         }
 
-        mUniversalAdapter.registerHolder("1",infos,new OneProvider(this,R.layout.holder_one));
-        mUniversalAdapter.registerHolder("2",mOtherInfos,new TowProvider(this,R.layout.holder_tow));
+        mUniversalAdapter.registerHolder("1",infos,new OneProvider(R.layout.holder_one));
+        mUniversalAdapter.registerHolder("2",mOtherInfos,new TowProvider(R.layout.holder_tow));
     }
 
     @Override
@@ -110,28 +110,28 @@ public class OtherMultipleActivity extends AppCompatActivity implements OnLoadMo
                         }else{
                             int r = new Random().nextInt(4);
                             if(r % 4 == 0){
-                                mUniversalAdapter.registerHolder("1",s,new OneProvider(OtherMultipleActivity.this,R.layout.holder_one));
-                                mUniversalAdapter.registerHolder("2",s,new TowProvider(OtherMultipleActivity.this,R.layout.holder_tow));
-                                mUniversalAdapter.registerHolder("3",s,new ThreeProvider(OtherMultipleActivity.this,R.layout.holder_three));
-                                mUniversalAdapter.registerHolder("4",s,new FourProvider(OtherMultipleActivity.this,R.layout.holder_four));
+                                mUniversalAdapter.registerHolder("1",s,new OneProvider(R.layout.holder_one));
+                                mUniversalAdapter.registerHolder("2",s,new TowProvider(R.layout.holder_tow));
+                                mUniversalAdapter.registerHolder("3",s,new ThreeProvider(R.layout.holder_three));
+                                mUniversalAdapter.registerHolder("4",s,new FourProvider(R.layout.holder_four));
                                 mUniversalAdapter.notifyMoreFinish(true);
                             }else if(r % 4 == 1){
-                                mUniversalAdapter.registerHolder("4",s,new FourProvider(OtherMultipleActivity.this,R.layout.holder_four));
-                                mUniversalAdapter.registerHolder("3",s,new ThreeProvider(OtherMultipleActivity.this,R.layout.holder_three));
-                                mUniversalAdapter.registerHolder("1",s,new OneProvider(OtherMultipleActivity.this,R.layout.holder_one));
-                                mUniversalAdapter.registerHolder("2",s,new TowProvider(OtherMultipleActivity.this,R.layout.holder_tow));
+                                mUniversalAdapter.registerHolder("4",s,new FourProvider(R.layout.holder_four));
+                                mUniversalAdapter.registerHolder("3",s,new ThreeProvider(R.layout.holder_three));
+                                mUniversalAdapter.registerHolder("1",s,new OneProvider(R.layout.holder_one));
+                                mUniversalAdapter.registerHolder("2",s,new TowProvider(R.layout.holder_tow));
                                 mUniversalAdapter.notifyMoreFinish(true);
                             }else if(r % 4 == 2){
-                                mUniversalAdapter.registerHolder("3",s,new ThreeProvider(OtherMultipleActivity.this,R.layout.holder_three));
-                                mUniversalAdapter.registerHolder("2",s,new TowProvider(OtherMultipleActivity.this,R.layout.holder_tow));
-                                mUniversalAdapter.registerHolder("4",s,new FourProvider(OtherMultipleActivity.this,R.layout.holder_four));
-                                mUniversalAdapter.registerHolder("1",s,new OneProvider(OtherMultipleActivity.this,R.layout.holder_one));
+                                mUniversalAdapter.registerHolder("3",s,new ThreeProvider(R.layout.holder_three));
+                                mUniversalAdapter.registerHolder("2",s,new TowProvider(R.layout.holder_tow));
+                                mUniversalAdapter.registerHolder("4",s,new FourProvider(R.layout.holder_four));
+                                mUniversalAdapter.registerHolder("1",s,new OneProvider(R.layout.holder_one));
                                 mUniversalAdapter.notifyMoreFinish(true);
                             }else{
-                                mUniversalAdapter.registerHolder("3",s,new ThreeProvider(OtherMultipleActivity.this,R.layout.holder_three));
-                                mUniversalAdapter.registerHolder("1",s,new OneProvider(OtherMultipleActivity.this,R.layout.holder_one));
-                                mUniversalAdapter.registerHolder("2",s,new TowProvider(OtherMultipleActivity.this,R.layout.holder_tow));
-                                mUniversalAdapter.registerHolder("4",s,new FourProvider(OtherMultipleActivity.this,R.layout.holder_four));
+                                mUniversalAdapter.registerHolder("3",s,new ThreeProvider(R.layout.holder_three));
+                                mUniversalAdapter.registerHolder("1",s,new OneProvider(R.layout.holder_one));
+                                mUniversalAdapter.registerHolder("2",s,new TowProvider(R.layout.holder_tow));
+                                mUniversalAdapter.registerHolder("4",s,new FourProvider(R.layout.holder_four));
                                 mUniversalAdapter.notifyMoreFinish(true);
                             }
                         }

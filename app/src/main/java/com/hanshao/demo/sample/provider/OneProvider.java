@@ -13,10 +13,10 @@ import com.hanshao.universal.UniversalViewHolder;
  * ACTION:
  */
 
-public class OneProvider extends UniversalProvider<String> {
+public class OneProvider extends UniversalProvider {
 
-    public OneProvider(Context context, int resId) {
-        super(context, resId);
+    public OneProvider(int resId) {
+        super(resId);
     }
 
     @Override

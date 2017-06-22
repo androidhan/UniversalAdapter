@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.hanshao.demo.sample.bean.ItemInfo;
 import com.hanshao.demo.sample.holder.HeaderHolder;
@@ -68,22 +69,39 @@ public class MultipleActivity extends AppCompatActivity implements OnLoadMoreLis
         infos = new ArrayList<>();
 
         for (int i = 0; i <10 ; i++) {
-            infos.add("第二种类型Item,当前位置:"+i);
+            infos.add("第一种类型Item,当前位置:"+i);
             ItemInfo itemInfo =  new ItemInfo();
             itemInfo.content= "第二种类型Item,当前位置:"+i;
             itemInfo.imageId = ids[new Random().nextInt(2)];
             otherInfos.add(itemInfo);
 
         }
-        mUniversalAdapter = new UniversalAdapter();
+        mUniversalAdapter = new UniversalAdapter(this);
         if(mFlag == 1){
             mUniversalAdapter.setHeaderEnable(true);
-            mUniversalAdapter.addHeaderViewHolder(new HeaderHolder(View.inflate(this,R.layout.holder_header,null)));
+            mUniversalAdapter.addHeaderViewHolder(new HeaderHolder(View.inflate(this, R.layout.holder_header, null)), new UniversalAdapter.OnHeaderOnClickListener() {
+                @Override
+                public void onHeaderClick(Object data) {
+                    Toast.makeText(MultipleActivity.this,"点击了头部",Toast.LENGTH_SHORT).show();
+                }
+            });
             mUniversalAdapter.setHeaderData(HEADERDATA);
         }
 
-        mUniversalAdapter.registerHolder("1",infos,new TextProvider(this,R.layout.holder_text));
-        mUniversalAdapter.registerHolder("2",otherInfos,new FristNormalProvider(this,R.layout.holder_normal_one));
+        mUniversalAdapter.registerHolder("1", infos, new TextProvider(R.layout.holder_text), new UniversalAdapter.OnItemClickListener<String>() {
+            @Override
+            public void onItemClick(int recyclerPosition, int dataPosition, String itemData) {
+                Toast.makeText(MultipleActivity.this,"点击类型为:一,当前在RecyclerView的位置:"+recyclerPosition+",当前数据位置:"+dataPosition
+                        +"内容:"+itemData,Toast.LENGTH_SHORT).show();
+            }
+        });
+        mUniversalAdapter.registerHolder("2", otherInfos, new FristNormalProvider(R.layout.holder_normal_one), new UniversalAdapter.OnItemClickListener<ItemInfo>() {
+            @Override
+            public void onItemClick(int recyclerPosition, int dataPosition, ItemInfo itemData) {
+                Toast.makeText(MultipleActivity.this,
+                        "点击类型为:二,当前在RecyclerView的位置:"+recyclerPosition+",当前数据位置:"+dataPosition+",当前内容:"+itemData.content,Toast.LENGTH_SHORT).show();
+            }
+        });
         mUniversalAdapter.setOnLoadMoreListener(this);
         mRecyclerView.setAdapter(mUniversalAdapter);
     }
